@@ -1,0 +1,11 @@
+-------- Eryn --------
+
+make obsticles 
+obsticles push player
+when of screen player dies
+
+--- Later ---
+make screen shake on collisions 
+add trails to player
+gravity switch
+background changes
