@@ -38,7 +38,11 @@ class Game:
     
     def handleEvent(self, event):
         if event.type == pygame.KEYDOWN:
-            if event.key in (pygame.K_SPACE, pygame.K_UP, pygame.K_w):
-                self.player.jump()
+            if event.key == pygame.K_f:
+                self.player.jump("high")
+            elif event.key == pygame.K_d:
+                self.player.jump("mid")
+            elif event.key == pygame.K_s:
+                self.player.jump("low")
         if event.type == self.SPAWNENEMY:
             self.addEnemy()

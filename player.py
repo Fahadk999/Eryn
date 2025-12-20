@@ -3,7 +3,11 @@ import pygame
 class Player:
     width = 30
     height = 30
-    jumpPower = 12
+    jumpPower = {
+            "hight" : 12,
+            "mid" : 8,
+            "low" : 4
+            }
     gravity = 0.6
 
     def __init__(self, sWidth, sHeight):
@@ -23,9 +27,9 @@ class Player:
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, self.rect)
 
-    def jump(self):
+    def jump(self, power):
         if self.onGround:
-            self.velY = -self.jumpPower
+            self.velY = -self.jumpPower[power]
             self.onGround = False
 
     def update(self):
