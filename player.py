@@ -4,9 +4,9 @@ class Player:
     width = 30
     height = 30
     jumpPower = {
-            "hight" : 12,
-            "mid" : 8,
-            "low" : 4
+            "high" : 12,
+            "mid" : 10,
+            "low" : 8 
             }
     gravity = 0.6
 
@@ -40,6 +40,7 @@ class Player:
             self.rect.y = self.groundY
             self.velY = 0
             self.onGround = True
+            
 
 
 

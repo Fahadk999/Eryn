@@ -22,7 +22,7 @@ class Game:
     def update(self):
         self.player.update()
         for other in self.others:
-            other.move()
+            other.move(self.player)
 
     def addEnemy(self):
         blocks = (
