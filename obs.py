@@ -20,11 +20,5 @@ class Obsticle:
 
     def move(self, other):
         self.rect.x -= self.speed
-        self.collide(other)
         if self.rect.x >= 100:
             self.outOfScreen = True
-
-    def collide(self, other):
-        if self.rect.colliderect(other.rect):
-            other.rect.x += self.rect.x - other.width
-

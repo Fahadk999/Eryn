@@ -3,11 +3,7 @@ import pygame
 class Player:
     width = 30
     height = 30
-    jumpPower = {
-            "high" : 12,
-            "mid" : 10,
-            "low" : 8 
-            }
+    jumpPower = 12
     gravity = 0.6
 
     def __init__(self, sWidth, sHeight):
@@ -27,9 +23,9 @@ class Player:
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, self.rect)
 
-    def jump(self, power):
+    def jump(self):
         if self.onGround:
-            self.velY = -self.jumpPower[power]
+            self.velY = -self.jumpPower
             self.onGround = False
 
     def update(self):
@@ -40,8 +36,10 @@ class Player:
             self.rect.y = self.groundY
             self.velY = 0
             self.onGround = True
-            
-
-
-
     
+    def collideCheck(self, other):
+        for wall in other:
+            if self.rect.colliderect(wall.rect):
+                self.alive = False
+                print("dead")
+                return

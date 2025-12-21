@@ -21,9 +21,7 @@ while running:
             running = False
         GAME.handleEvent(event)
 
-    screen.fill("grey")
-
-    GAME.update()
+    GAME.update(screen)
 
     GAME.draw(screen)
 
@@ -32,5 +30,4 @@ while running:
 
 pygame.quit()
 sys.exit()
-
 # look in to task.txt for more to do

@@ -3,6 +3,7 @@ import pygame
 from player import Player
 from obs import Obsticle
 from random import choice
+from text import Text
 
 class Game:
     def __init__(self, sWidth, sHeight):
@@ -13,14 +14,18 @@ class Game:
 
         self.player = Player(sWidth, sHeight)
         self.others = []
+        self.text = Text("Text", 10, 10, 100, 100) 
 
     def draw(self, screen):
+        self.text.draw(screen)
         self.player.draw(screen)
         for other in self.others:
             other.draw(screen)
 
-    def update(self):
+    def update(self, screen):
+        screen.fill("grey")
         self.player.update()
+        self.player.collideCheck(self.others)
         for other in self.others:
             other.move(self.player)
 
@@ -38,11 +43,12 @@ class Game:
     
     def handleEvent(self, event):
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_f:
-                self.player.jump("high")
-            elif event.key == pygame.K_d:
-                self.player.jump("mid")
-            elif event.key == pygame.K_s:
-                self.player.jump("low")
+            if event.key in (pygame.K_SPACE, pygame.K_UP, pygame.K_w):
+                self.player.jump()
         if event.type == self.SPAWNENEMY:
             self.addEnemy()
+
+    def makeMenu(self, screen):
+        pass
+    def makeGameover(self, screen):
+        pass
