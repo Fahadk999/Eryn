@@ -1,7 +1,7 @@
-#-------- Obsticle --------
+#-------- Obstacle --------
 import pygame
 
-class Obsticle:
+class Obstacle:
     def __init__(self, width, height, sWidth, sHeight, speed=4):
         self.width = width
         self.height = height

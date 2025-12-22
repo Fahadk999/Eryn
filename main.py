@@ -14,6 +14,7 @@ GAME = Game(WIDTH, HEIGHT)
 running = True
 
 while running:
+    dt = clock.tick(60) / 1000 # seconds since last frame
     for event in pygame.event.get():
         if (event.type == pygame.QUIT or
             (event.type == pygame.KEYDOWN and
@@ -21,12 +22,11 @@ while running:
             running = False
         GAME.handleEvent(event)
 
-    GAME.update(screen)
+    GAME.update(screen, dt)
 
     GAME.draw(screen)
 
     pygame.display.flip()
-    clock.tick(60)
 
 pygame.quit()
 sys.exit()

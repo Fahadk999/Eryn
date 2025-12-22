@@ -4,7 +4,7 @@ class Player:
     width = 30
     height = 30
     jumpPower = 12
-    gravity = 0.6
+    gravity = 0.68
 
     def __init__(self, sWidth, sHeight):
         self.alive = True
