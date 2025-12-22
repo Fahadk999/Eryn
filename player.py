@@ -41,5 +41,4 @@ class Player:
         for wall in other:
             if self.rect.colliderect(wall.rect):
                 self.alive = False
-                print("dead")
                 return

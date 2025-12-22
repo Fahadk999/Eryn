@@ -8,12 +8,11 @@ class Text:
     # Fix this font for numbers
     fontFilePath = os.path.join("Resources", "Fonts", "Arena-rvwaK.ttf")
 
-    def __init__(self, txt, x, y, width, height, color):
+    def __init__(self, txt, x, y, width, height, color, size):
         try:
-            self.font = pygame.font.SysFont(None, 30)
+            self.font = pygame.font.SysFont(None, size)
         except FileNotFoundError:
             print(f"File not found {self.fontFilePath}")
-            self.font = pygame.font.SysFont(None, 30)
 
         self.txt = txt
         self.color = color
@@ -28,3 +27,7 @@ class Text:
     def updateText(self, txt):
         self.txt = txt
         self.textSurface = self.font.render(txt, True, self.color)
+    
+    def setPosition(self, x, y):
+        self.rect.x = x
+        self.rect.y = y
