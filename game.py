@@ -14,9 +14,9 @@ class Game:
         pygame.time.set_timer(self.SPAWNENEMY, self.baseSpawnInterval)
 
         self.score = 0
-        self.gameOverText = Text("Game Over!", self.sWidth//2 - 100, self.sHeight//2 - 50, 200, 100, "black", 40)
+        self.gameOverText = Text("", self.sWidth//2 - 100, self.sHeight//2 - 50, 200, 100, "black", 40)
         self.player = Player(sWidth, sHeight)
-        self.baseSpeed = 6
+        self.baseSpeed = 12.0
         self.speed = self.baseSpeed
         self.others = []
         self.scoreText = Text(f"Score: {self.score}", 10, 10, 150, 100, "black", 30)
@@ -24,7 +24,7 @@ class Game:
         # Level-based scaling
         self.level = 1
         self.nextLevelScore = 100  # score required to reach next level
-        self.levelIncrement = 0.5   # speed increase per level
+        self.levelIncrement = 0.8   # speed increase per level
         self.minSpawnInterval = 500
 
     def draw(self, screen):
@@ -77,7 +77,7 @@ class Game:
         if event.type == pygame.KEYDOWN:
             if event.key in (pygame.K_SPACE, pygame.K_UP, pygame.K_w):
                 self.player.jump()
-            if not self.player.alive and event.key == pygame.K_RETURN:
+            if not self.player.alive and event.key == pygame.K_SPACE:
                 self.player.alive = True
                 self.score = 0
                 self.level = 1
@@ -91,6 +91,7 @@ class Game:
             self.addEnemy()
 
     def makeGameover(self, screen):
+        self.gameOverText.updateText("Gameover!")
         self.gameOverText.draw(screen)
         self.scoreText.setPosition(self.sWidth//2 - 75, self.sHeight//2)
         self.scoreText.draw(screen) # set position of score text and retry button

@@ -26,7 +26,11 @@ class Text:
 
     def updateText(self, txt):
         self.txt = txt
-        self.textSurface = self.font.render(txt, True, self.color)
+        self.textSurface = self.font.render(self.txt, True, self.color)
+
+    def setFontSize(self, size):
+        self.font = pygame.font.SysFont(None, size)
+        self.textSurface = self.font.render(self.txt, True, self.color)
     
     def setPosition(self, x, y):
         self.rect.x = x

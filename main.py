@@ -7,6 +7,7 @@ pygame.init()
 
 WIDTH, HEIGHT = 1020, 700
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Eryn")
 clock = pygame.time.Clock()
 
 GAME = Game(WIDTH, HEIGHT)
