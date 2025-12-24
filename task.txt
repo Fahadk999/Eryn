@@ -1,11 +1,9 @@
 -------- Eryn --------
 
-make obsticles 
-obsticles push player
-when of screen player dies
+obsticles kill player
 
 --- Later ---
 make screen shake on collisions 
 add trails to player
-gravity switch
+gravity switch item
 background changes
